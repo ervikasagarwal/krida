@@ -12,7 +12,6 @@ export class AppComponent implements AfterViewInit{
     private elementRef: ElementRef,
     private router: Router
   ) { 
-    debugger;
   }
   ngAfterViewInit() {
     if (typeof icons != 'undefined') {

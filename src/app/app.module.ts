@@ -4,13 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { KridaTvHeaderModule } from './ktv-header/ktv-header.module';
 @NgModule({
   declarations: [
-    AppComponent,
-    KridaTvHeaderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    KridaTvHeaderModule,
     AppRoutingModule
   ],
   providers: [],
@@ -18,6 +19,5 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { 
   constructor(){
-    debugger;
   }
 }

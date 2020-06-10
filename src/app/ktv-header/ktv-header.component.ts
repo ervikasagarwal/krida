@@ -15,7 +15,6 @@ export class KridaTvHeaderComponent implements OnInit, OnDestroy, AfterViewInit 
   private streamSubscription: Subscription;
 
   ngOnInit() { 
-    debugger;
     this.router.navigate(['/home'])
   }
 

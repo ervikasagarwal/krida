@@ -1,11 +1,33 @@
+import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { KridaTvHeaderComponent } from './ktv-header';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  // { path: '', redirectTo: 'ktv', pathMatch: 'full' },
+  {
+    path: '',
+    component: KridaTvHeaderComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      {
+        path: 'home',
+        loadChildren: () => import('./ktv-home/ktv-home.module').then(m => m.ktvHomeModule)
+      }
+    ],
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    useHash: true,
+    enableTracing: false
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+.circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }

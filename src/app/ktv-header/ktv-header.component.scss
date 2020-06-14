@@ -1,4 +1,5 @@
 @import "~src/assets/scss/variables.scss";
+
 * {
     margin: 0px;
     padding: 0px;
@@ -8,54 +9,133 @@
 
 .header-container {
     width: 100%;
-    height: 50px;
-    background-color: $primaryColor;
+    height: 80px;
     display: flex;
+    flex-direction: column;
     font-family: 'Odibee Sans', cursive;
     position: fixed;
+
     // font-family: 'Piedra', cursive;
-
-    .logo-container {
-        display: flex;
-        height: 100%;
-        width: 200px;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-
-        .title {
-            font-size: 50px;
-            color: $logoColor;
-            padding-top: 14px;
-            padding-right: 3px;
-        }
-
-        img {
-            height: 50px;
-            width: 50px;
-            padding-top: 12px;
-        }
+    .loading-indicator {
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, $secondaryColor);
+        animation: linearflow 1s linear infinite;
+        position: relative;
     }
 
-    .right-container {
-        width: 50%;
+    .header-content {
         display: flex;
+        background-color: $primaryColor;
+        height: 50px;
+
+        .logo-container {
+            display: flex;
+            height: 100%;
+            width: 200px;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1;
+            padding-left: 10px;
+
+            .title {
+                font-size: 50px;
+                color: $logoColor;
+                padding-top: 14px;
+                padding-right: 3px;
+            }
+
+            img {
+                height: 50px;
+                width: 50px;
+                padding-top: 12px;
+            }
+        }
 
         .nev-list-container {
             display: flex;
-            margin: auto;
+            margin: auto 0;
+            width: 100%;
+            justify-content: center;
 
             a {
                 font-size: 26px;
                 padding: 0px 20px;
-                color: $textColor;
+                color: $secondaryColor;
             }
 
             a:hover {
-                color:$logoColor;
-                font-size: 28px;
+                color: $logoColor;
+                font-size: 26.5px;
+            }
+        }
+
+        .right-container {
+            display: flex;
+            padding-right: 20px;
+
+            .sign-up-btn {
+                color: $secondaryColor;
+                font-size: 26px;
+                // text-transform: uppercase;
+                transition: 0.5s;
+                /* letter-spacing: 4px; */
+                margin: auto;
+                padding: 5px 20px;
+                display: flex;
+            }
+
+            .sign-up-btn:hover {
+                background: $secondaryColor;
+                color: $primaryColor;
+                box-shadow: 0 0 5px $secondaryColor, 0 0 25px $secondaryColor;
+            }
+
+            .search-icon-container {
+                margin: auto;
+
+                .icon>svg {
+                    height: 26px;
+                    width: 26px;
+                }
+
+                padding: 0 20px;
+            }
+
+            .search-icon-container:hover {
+                .icon>svg {
+                    color: $logoColor;
+                    cursor: pointer;
+                }
+            }
+
+            .menu-icon-container {
+                margin: auto;
+                padding: 0 20px;
+            }
+
+            .menu-icon-container:hover {
+                .icon>svg {
+                    color: $logoColor;
+                    cursor: pointer;
+                }
             }
         }
     }
 
+}
+
+@keyframes linearflow {
+    0% {
+        left: -100%;
+    }
+
+    50% {
+        left: 100%
+    }
+
+    100% {
+        left: 100%
+    }
 }

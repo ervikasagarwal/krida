@@ -1,15 +1,28 @@
 <div class="header-container">
-    <div class="logo-container">
-        <span class="title">Krida</span>
-        <img src="./../../assets/images/pinclipart-tv.png">
+    <div class="header-content">
+        <div class="logo-container">
+            <span class="title">Krida</span>
+            <img src="./../../assets/images/pinclipart-tv.png">
+        </div>
+            <ul class="nev-list-container">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        <div class="right-container">
+            <div class="search-icon-container" dmIconInjector 
+            [config]="{ 'icon': '#icon_search_bold', 'cssClass': 'secondary-color', 'isSVG': true }"
+            ></div>
+            <a class="sign-up-btn" href="#">
+                Login
+            </a>
+            <div class="menu-icon-container" dmIconInjector 
+            [config]="{ 'icon': '#icon_menu_bold', 'cssClass': 'secondary-color', 'isSVG': true }"
+            ></div>
+            
+        </div>
     </div>
-    <div class="right-container">
-        <ul class="nev-list-container">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Games</a></li>
-            <li><a href="#">Blogs</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </div>
+    <span class="loading-indicator"></span>
 </div>
 <router-outlet></router-outlet>

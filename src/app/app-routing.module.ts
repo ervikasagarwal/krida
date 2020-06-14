@@ -5,18 +5,17 @@ import { KridaTvHeaderComponent } from './ktv-header';
 
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'ktv', pathMatch: 'full' },
-  {
-    path: '',
-    component: KridaTvHeaderComponent,
-    children: [
+  // {
+    // path: '',
+    // component: KridaTvHeaderComponent,
+    // children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',
         loadChildren: () => import('./ktv-home/ktv-home.module').then(m => m.ktvHomeModule)
-      }
-    ],
-  },
+      },
+    // ],
+  // },
   {
     path: '**',
     redirectTo: ''

@@ -1,0 +1,27 @@
+@import "~src/assets/scss/variables.scss";
+
+.main-container {
+    height: 100%;
+    width: 100%;
+    // background-image: url('./../assets/images/black-bg.jpg');
+    // background: linear-gradient(90deg,lightgrey ,grey);
+    background: repeating-linear-gradient(-45deg, $secondaryColorShades);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    // background-size: cover;
+    background-size: 400% 400%;
+    animation:  bgFlow 10s ease-in-out infinite;
+}
+
+@keyframes bgFlow{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}

@@ -16,6 +16,5 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class KridaTvHeaderModule { 
     constructor(){
-        debugger;
     }
 }

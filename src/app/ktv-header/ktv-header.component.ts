@@ -10,13 +10,11 @@ import { Subscription } from 'rxjs';
 
 export class KridaTvHeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
-    private router:Router
+    private router: Router
   ) { }
   private streamSubscription: Subscription;
 
-  ngOnInit() { 
-    this.router.navigate(['/home'])
-  }
+  ngOnInit() { }
 
   ngAfterViewInit() { }
 

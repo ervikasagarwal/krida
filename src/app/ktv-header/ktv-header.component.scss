@@ -1,0 +1,61 @@
+@import "~src/assets/scss/variables.scss";
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.header-container {
+    width: 100%;
+    height: 50px;
+    background-color: $primaryColor;
+    display: flex;
+    font-family: 'Odibee Sans', cursive;
+    position: fixed;
+    // font-family: 'Piedra', cursive;
+
+    .logo-container {
+        display: flex;
+        height: 100%;
+        width: 200px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .title {
+            font-size: 50px;
+            color: $logoColor;
+            padding-top: 14px;
+            padding-right: 3px;
+        }
+
+        img {
+            height: 50px;
+            width: 50px;
+            padding-top: 12px;
+        }
+    }
+
+    .right-container {
+        width: 50%;
+        display: flex;
+
+        .nev-list-container {
+            display: flex;
+            margin: auto;
+
+            a {
+                font-size: 26px;
+                padding: 0px 20px;
+                color: $textColor;
+            }
+
+            a:hover {
+                color:$logoColor;
+                font-size: 28px;
+            }
+        }
+    }
+
+}

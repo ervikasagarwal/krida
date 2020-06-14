@@ -1,4 +1,3 @@
-import { RouterModule, Router } from '@angular/router';
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Subscription } from 'rxjs';
@@ -9,13 +8,9 @@ import { Subscription } from 'rxjs';
 })
 export class ktvHomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  constructor(
-    ) { }
-  private streamSubscription: Subscription;
+  constructor() { }
 
-  ngOnInit() {
-    alert('hi');
-  }
+  ngOnInit() { }
   ngAfterViewInit() { }
   ngOnDestroy() { }
 }

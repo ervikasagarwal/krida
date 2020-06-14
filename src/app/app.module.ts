@@ -11,7 +11,7 @@ import { KridaTvHeaderModule } from './ktv-header/ktv-header.module';
   ],
   imports: [
     BrowserModule,
-    KridaTvHeaderModule,
+    KridaTvHeaderModule, 
     AppRoutingModule
   ],
   providers: [],

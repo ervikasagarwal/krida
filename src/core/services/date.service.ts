@@ -15,7 +15,7 @@ export interface IDateConfig {
 }
 
 @Injectable()
-export class DmDateService {
+export class DateMethodsService {
     constructor() {
 
     }

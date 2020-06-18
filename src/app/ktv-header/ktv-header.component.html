@@ -4,23 +4,45 @@
             <span class="title">Krida</span>
             <img src="./../../assets/images/pinclipart-tv.png">
         </div>
-            <ul class="nev-list-container">
+        <div class="nev-list-container">
+            <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Games</a></li>
                 <li><a href="#">Blogs</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
+        </div>
         <div class="right-container">
-            <div class="search-icon-container" dmIconInjector 
-            [config]="{ 'icon': '#icon_search_bold', 'cssClass': 'secondary-color', 'isSVG': true }"
-            ></div>
+            <div #searchBoxContainer class="search-box-container" (mouseover)="onSearchMouseOver($event)">
+
+                <input class="search-input" type="text" name="box" placeholder="Type to search">
+                <div class="search-icon-container" dmIconInjector
+                [config]="{ 'icon': '#icon_search_bold', 'cssClass': 'secondary-color', 'isSVG': true }"
+                (click)="onSearchClick($event);"></div>
+            </div>
             <a class="sign-up-btn" href="#">
                 Login
             </a>
-            <div class="menu-icon-container" dmIconInjector 
-            [config]="{ 'icon': '#icon_menu_bold', 'cssClass': 'secondary-color', 'isSVG': true }"
-            ></div>
-            
+            <div class="menu-icon-container" dmIconInjector
+                [config]="{ 'icon': '#icon_menu_bold', 'cssClass': 'secondary-color', 'isSVG': true }"
+                (click)="onMenuBtnClick($event);">
+            </div>
+
+            <ng-container #NavSlideContainer></ng-container>
+            <ng-template #NavSlideTemplate>
+                <div class="nav-link-mob-slide">
+                    <div class="slide-nav-close-btn" dmIconInjector
+                        [config]="{ 'icon': '#icon_Back', 'cssClass': 'secondary-color', 'isSVG': true }"
+                        (click)="onNavSliderCloseClick($event);">
+                    </div>
+                    <ul class="link-list">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Games</a></li>
+                        <li><a href="#">Blogs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </ng-template>
         </div>
     </div>
     <span class="loading-indicator"></span>

@@ -9,7 +9,6 @@
 
 .header-container {
     width: 100%;
-    height: 80px;
     display: flex;
     flex-direction: column;
     font-family: 'Odibee Sans', cursive;
@@ -28,11 +27,11 @@
         display: flex;
         background-color: $primaryColor;
         height: 50px;
+        justify-content: space-between; //make all remaining space in the middle so that last div stick to the right side
 
         .logo-container {
             display: flex;
             height: 100%;
-            width: 200px;
             justify-content: center;
             align-items: center;
             cursor: pointer;
@@ -59,6 +58,10 @@
             width: 100%;
             justify-content: center;
 
+            ul {
+                display: flex;
+            }
+
             a {
                 font-size: 26px;
                 padding: 0px 20px;
@@ -82,7 +85,7 @@
                 transition: 0.5s;
                 /* letter-spacing: 4px; */
                 margin: auto;
-                padding: 5px 20px;
+                padding: 2px 20px;
                 display: flex;
             }
 
@@ -92,20 +95,48 @@
                 box-shadow: 0 0 5px $secondaryColor, 0 0 25px $secondaryColor;
             }
 
-            .search-icon-container {
+            .search-box-container {
+                display: flex;
+                // background: $secondaryColor;
                 margin: auto;
+                border-radius: 40px;
+                height: 32px;
+                padding-left: 10px;
 
-                .icon>svg {
-                    height: 26px;
-                    width: 26px;
+                .search-input {
+                    border: none;
+                    background: none;
+                    font-weight: 500;
+                    outline: none;
+                    float: left;
+                    padding: 0 0 0 10px;
+                    color: $primaryColor;
+                    font-size: 16px;
+                    transition: 0.4s;
+                    width: 0px;
                 }
 
-                padding: 0 20px;
+                .search-icon-container {
+                    margin: auto;
+
+                    .icon>svg {
+                        height: 26px;
+                        width: 26px;
+                    }
+
+                    padding: 0 20px;
+                }
             }
 
-            .search-icon-container:hover {
+            .search-box-container:hover {
+                background: $secondaryColor;
+
+                .search-input {
+                    width: 200px;
+                }
+
                 .icon>svg {
-                    color: $logoColor;
+                    color: $primaryColor;
                     cursor: pointer;
                 }
             }
@@ -113,6 +144,7 @@
             .menu-icon-container {
                 margin: auto;
                 padding: 0 20px;
+                display: none;
             }
 
             .menu-icon-container:hover {
@@ -121,10 +153,126 @@
                     cursor: pointer;
                 }
             }
+
+            .nav-link-mob-slide {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                background: $primaryColor;
+                z-index: 2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 38px;
+                color: lightgray;
+                transition: none;
+
+                ul {
+                    line-height: 2;
+                }
+
+                a {
+                    color: $secondaryColor !important;
+                }
+
+                a:hover {
+                    color: $logoColor !important;
+                }
+
+                .slide-nav-close-btn {
+                    position: absolute;
+                    top: 20px;
+                    left: 20px;
+                    cursor: pointer;
+
+                    .icon>svg {
+                        height: 40px;
+                        width: 40px;
+                    }
+                }
+
+                .slide-nav-close-btn:hover {
+                    .icon>svg {
+                        color: $logoColor;
+                        height: 42px;
+                        width: 42px;
+                    }
+                }
+
+            }
+
         }
     }
 
 }
+
+@media screen and (max-width:900px) {
+    .menu-icon-container {
+        display: block !important;
+    }
+
+    .nev-list-container {
+        display: none !important;
+    }
+
+}
+
+@media screen and (max-width:700px) {
+    .menu-icon-container {
+        display: block !important;
+    }
+
+    .search-box-container:hover {
+        .search-input {
+            width: 0px !important;
+        }
+
+        .icon>svg {
+            color: $logoColor !important;
+            cursor: pointer;
+        }
+
+        background: $primaryColor !important;
+
+    }
+
+    .nev-list-container {
+        display: none !important;
+    }
+
+    .header-content {
+        height: 42px !important;
+    }
+
+    .logo-container {
+        .title {
+            font-size: 40px !important;
+        }
+
+        img {
+            height: 40px !important;
+            width: 40px !important;
+        }
+    }
+
+    .sign-up-btn {
+        font-size: 22px !important;
+        padding: 3px 10px !important;
+    }
+
+    .right-container {
+        padding: 0 0px !important;
+    }
+
+    .menu-icon-container {
+        padding: 0 10px !important;
+    }
+
+}
+
 
 @keyframes linearflow {
     0% {

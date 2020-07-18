@@ -13,12 +13,16 @@
             </ul>
         </div>
         <div class="right-container">
-            <div #searchBoxContainer class="search-box-container" (mouseover)="onSearchMouseOver($event)">
-
+            <div class="search-box">
+            <div #searchBoxContainer class="search-box-container" >
                 <input class="search-input" type="text" name="box" placeholder="Type to search">
-                <div class="search-icon-container" dmIconInjector
+                <div class="search-icon-container hover-hightlight" dmIconInjector title="Search"
                 [config]="{ 'icon': '#icon_search_bold', 'cssClass': 'secondary-color', 'isSVG': true }"
                 (click)="onSearchClick($event);"></div>
+                <div #searchCloseIcon class="search-close-icon hide" dmIconInjector
+                [config]="{ 'icon': '#icon_Close', 'cssClass': 'secondary-color', 'isSVG': true }"
+                (click)="onSearchCloseClick($event);"></div>
+            </div>
             </div>
             <a class="sign-up-btn" href="#">
                 Login

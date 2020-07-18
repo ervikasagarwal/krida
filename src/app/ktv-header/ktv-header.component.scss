@@ -70,7 +70,7 @@
 
             a:hover {
                 color: $logoColor;
-                font-size: 26.5px;
+                // font-size: 26.5px;
             }
         }
 
@@ -95,51 +95,61 @@
                 box-shadow: 0 0 5px $secondaryColor, 0 0 25px $secondaryColor;
             }
 
-            .search-box-container {
+            .search-box {
                 display: flex;
-                // background: $secondaryColor;
-                margin: auto;
-                border-radius: 40px;
-                height: 32px;
-                padding-left: 10px;
+                margin-right: 10px;
 
-                .search-input {
-                    border: none;
-                    background: none;
-                    font-weight: 500;
-                    outline: none;
-                    float: left;
-                    padding: 0 0 0 10px;
-                    color: $primaryColor;
-                    font-size: 16px;
-                    transition: 0.4s;
-                    width: 0px;
-                }
-
-                .search-icon-container {
+                .search-box-container {
+                    display: flex;
+                    // background: $secondaryColor;
                     margin: auto;
+                    border-radius: 40px;
+                    height: 32px;
+                    padding-left: 10px;
 
-                    .icon>svg {
-                        height: 26px;
-                        width: 26px;
+                    .search-input {
+                        border: none;
+                        background: none;
+                        font-weight: 500;
+                        outline: none;
+                        float: left;
+                        padding: 0 0 0 10px;
+                        color: $primaryColor;
+                        font-size: 16px;
+                        transition: 0.4s;
+                        width: 0px;
                     }
 
-                    padding: 0 20px;
+                    .search-icon-container {
+                        margin: auto;
+
+                        .icon>svg {
+                            height: 26px;
+                            width: 26px;
+                        }
+
+                        padding: 0 10px;
+                    }
+
+                    // .search-icon-container:hover {
+                    //     .icon>svg {
+                    //         color: $logoColor !important;
+                    //     }
+                    // }
+
+                    .search-close-icon {
+                        margin: auto;
+
+                        .icon>svg {
+                            height: 26px;
+                            width: 26px;
+                        }
+
+                        padding: 0 10px 0 0;
+                    }
                 }
             }
 
-            .search-box-container:hover {
-                background: $secondaryColor;
-
-                .search-input {
-                    width: 200px;
-                }
-
-                .icon>svg {
-                    color: $primaryColor;
-                    cursor: pointer;
-                }
-            }
 
             .menu-icon-container {
                 margin: auto;
@@ -209,6 +219,48 @@
 
 }
 
+.hover-hightlight:hover{
+    .icon>svg {
+        color: $logoColor !important;
+    }
+}
+
+.search-box-container-open {
+    background: $secondaryColor;
+
+    .search-input {
+        width: 200px !important;
+    }
+
+    .icon>svg {
+        color: $primaryColor;
+        cursor: pointer;
+    }
+}
+
+.search-box-container-open-mobile {
+    display: flex;
+    border-radius: 40px;
+    height: 32px;
+    padding-left: 10px;
+    background: $secondaryColor;
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    right: 20px;
+    z-index: 3;
+    margin: 0 20px;
+
+    .search-input {
+        width: calc(100% - 66px) !important;
+    }
+
+    .icon>svg {
+        color: $primaryColor;
+        cursor: pointer;
+    }
+}
+
 @media screen and (max-width:900px) {
     .menu-icon-container {
         display: block !important;
@@ -223,20 +275,6 @@
 @media screen and (max-width:700px) {
     .menu-icon-container {
         display: block !important;
-    }
-
-    .search-box-container:hover {
-        .search-input {
-            width: 0px !important;
-        }
-
-        .icon>svg {
-            color: $logoColor !important;
-            cursor: pointer;
-        }
-
-        background: $primaryColor !important;
-
     }
 
     .nev-list-container {

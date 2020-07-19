@@ -1,8 +1,5 @@
-import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { KridaTvHeaderComponent } from './ktv-header';
-
 
 const routes: Routes = [
   // {

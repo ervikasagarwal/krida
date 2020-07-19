@@ -9,9 +9,9 @@ declare var icons: any;
 export class AppComponent implements AfterViewInit {
 	title = 'testProject';
 	constructor(
-		private elementRef: ElementRef,
-		private router: Router
+		private elementRef: ElementRef
 	) {
+		
 	}
 	ngAfterViewInit() {
 		if (typeof icons != 'undefined') {

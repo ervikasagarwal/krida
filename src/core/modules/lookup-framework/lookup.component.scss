@@ -1,0 +1,475 @@
+@import "../../../assets/scss/variables.scss";
+
+.example-form {
+    width: 100% !important;
+}
+
+
+.aggrid-container {
+    lookup-framework-component {
+        width: 100% !important;
+        button:focus {
+            background-color: transparent !important;
+            color:black !important;
+        }
+    }
+
+    .im-lookup-framework-in-ag-grid {
+        width: 100%;
+        margin-top: 15px;
+
+        .mat-form-field-wrapper {
+            padding-bottom: 0px;
+
+            .mat-form-field-underline {
+                height: 0px;
+
+                .mat-form-field-ripple {
+                    height: 0px;
+                }
+            }
+
+            .mat-form-field-infix {
+                border-top: 0px;
+            }
+        }
+
+
+        .mat-form-field-flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .mat-input-element {
+            border: 1px solid #f8f8f8;
+            height: 35px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0px 10px;
+            box-sizing: border-box;
+
+            &:focus {
+                box-shadow: none !important;
+                border-bottom: 1px solid $ComboBoxDropdownBorder !important;
+            }
+        }
+
+        .invalid-Error-textbox {
+            .mat-input-element {
+                border: 2px solid $dropDownErrorWarning;
+                border-radius: 4px;
+                height: 35px !important;
+                margin-top: 0px;
+                display: flex;
+                align-items: center;
+
+                &:focus {
+                    box-shadow: none !important;
+                    border-bottom: 2px solid $dropDownErrorWarning !important;
+                }
+            }
+        }
+
+        .im-lookup-fw-custom-option {
+            .mat-autocomplete-panel {
+                height: 200px;
+            }
+        }
+
+        .ta-input-disabled {
+            pointer-events: none;
+            cursor: default;
+            background-color: $dropDownDisabledBgColor;
+
+            .mat-form-field-underline {
+                height: 0px;
+
+                .mat-form-field-ripple {
+                    height: 0px;
+                }
+            }
+
+            .mat-input-element {
+                cursor: default;
+                pointer-events: none;
+                background-color: $dropDownDisabledBgColor;
+            }
+
+        }
+    }
+
+    .im-lookup-fw-mat-select-container {
+        .example-full-width {
+            width: 100%;
+        }
+
+        .invalid-Error-textbox {
+            .mat-form-field-wrapper {
+                border: 2px solid $dropDownErrorWarning;
+                border-radius: 4px;
+                height: 35px !important;
+                margin-top: 0px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .mat-select-value-text {
+            font-size: 14px;
+            padding: 0px 10px;
+            bottom: 4px;
+        }
+
+        .mat-select-arrow-wrapper {
+            display: table-cell;
+            vertical-align: middle;
+            position: absolute;
+            right: 20px !important;
+            bottom: 2px !important;
+        }
+
+        .mat-select-arrow {
+            position: relative !important;
+            height: 15px !important;
+            border-left: unset !important;
+            border-right: unset !important;
+            border-top: unset !important;
+            margin: unset !important;
+        }
+
+        .mat-select-arrow::before {
+            content: ' \25B2 ';
+            height: 4px;
+            font-size: 9px;
+            top: 0;
+            position: absolute;
+        }
+
+        .mat-select-arrow::after {
+            content: ' \25BC';
+            font-size: 9px;
+            height: 5px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .mat-select-arrow {
+            color: lighten($colorBlack, 29%);
+        }
+
+        .mat-primary {
+            .mat-select-arrow {
+                color: lighten($colorBlack, 29%);
+            }
+        }
+
+        .mat-form-field-wrapper {
+            border: 1px solid $ComboBoxDropdownBorder;
+            border-radius: 4px;
+            height: 35px !important;
+            margin-top: 0px;
+            display: flex;
+            align-items: center;
+            padding-bottom: 0px;
+
+            .mat-form-field-infix {
+                border-top: 0px;
+
+                .mat-select-trigger {
+                    width: 100%;
+                }
+            }
+
+            .mat-form-field-underline {
+                height: 0px;
+
+                .mat-form-field-ripple {
+                    height: 0px;
+                }
+            }
+        }
+
+        .ta-input-disabled {
+            cursor: default;
+            pointer-events: none;
+            background-color: $dropDownDisabledBgColor;
+
+            .mat-select-arrow {
+                color: $dropDownDisabledBgColor;
+            }
+        }
+    }
+}
+
+.im-lookup-framework-matautocomplete {
+    max-width: unset !important;
+    min-width: unset !important;
+    width: 100%;
+    margin-top: 3px;
+    border: 1px solid #CFD8DC;
+    border-radius: 4px;
+    background-color: #ffffff;
+
+    .mat-autocomplete-options {
+        max-height: 150px;
+        overflow: auto;
+    }
+
+    .mat-option {
+        font-size: 14px;
+
+        &:hover {
+            background-color: $dropDownHoverBgColor;
+            color: $dropDownHoverColor;
+        }
+
+        &.active {
+            color: $dropDownHoverColor;
+        }
+
+    }
+
+    .mat-option.mat-active,
+    .mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled),
+    .mat-option:focus:not(.mat-option-disabled) {
+        background: none;
+    }
+}
+
+.im-lookup-fw-mat-select {
+    max-width: unset !important;
+    min-width: unset !important;
+    width: 100%;
+    margin-top: 28px;
+    border: 1px solid #CFD8DC;
+    border-radius: 4px;
+    background-color: #ffffff;
+
+    .mat-option-text {
+        font-size: 14px;
+    }
+
+    .mat-option-pseudo-checkbox {
+        margin-right: 11px;
+    }
+
+    .mat-option.mat-active,
+    .mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled),
+    .mat-option:focus:not(.mat-option-disabled) {
+        background: none;
+    }
+
+    .mat-option {
+        &:hover {
+            background-color: $dropDownHoverBgColor;
+            color: $dropDownHoverColor;
+        }
+
+        &.active {
+            color: $dropDownHoverColor;
+        }
+
+    }
+
+    .option-container {
+        border: none;
+        border-radius: 5px;
+    }
+
+    .mat-option.mat-selected:not(.mat-option-disabled) {
+        color: $dropDownHoverColor;
+    }
+
+}
+
+.im-lookup-fw-lookup-option-list {
+    overflow: auto;
+    max-height: 200px;
+}
+
+.im-lookup-fw-auto-complete-footer {
+    padding: 6px;
+    border-top: solid 1px #dedede;
+
+    .im-lookup-fw-auto-complete-footer-left {
+        float: left;
+        display: contents;
+        color: #0177d6;
+        cursor: pointer;
+    }
+
+    .im-lookup-fw-auto-complete-footer-left:hover {
+        text-decoration: underline;
+    }
+
+    .im-lookup-fw-auto-complete-footer-right {
+        float: right;
+        color: #0177d6;
+        cursor: pointer;
+    }
+
+    .im-lookup-fw-auto-complete-footer-right:hover {
+        text-decoration: underline;
+    }
+}
+
+.im-lookup-fw-custom-date-padding {
+    .mat-form-field-wrapper {
+        padding-left: 10px;
+    }
+}
+
+// mat date picker styling
+.auto-render {
+    font-style: italic;
+}
+
+.im-lookup-fw-custom-date-input-field .mat-form-field {
+    display: block;
+    margin-top: unset;
+    -webkit-transform: none;
+    transform: none;
+    -ms-transform: none;
+}
+
+.im-lookup-fw-custom-date-input-field {
+    .mat-form-field-label-wrapper {
+        display: none;
+    }
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+    border: none;
+    color: $calenderActiveDateColor;
+    font-weight: bold;
+}
+
+.mat-calendar-body-active .mat-calendar-body-cell-content:not(.mat-calendar-body-selected) {
+    background-color: transparent;
+}
+
+.mat-calendar-body-cell-content {
+    border-radius: 2px;
+}
+
+.mat-calendar-body-cell-content.mat-calendar-body-today {
+
+    &::after {
+        content: " ";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: $calenderActiveDateColor;
+        bottom: 3px;
+        border-radius: 100%;
+    }
+
+}
+
+.mat-datepicker-toggle-active {
+    color: $iconDefaultColor;
+}
+
+.mat-calendar-table thead {
+    border-bottom: none;
+}
+
+.mat-calendar-body-label {
+    visibility: hidden;
+}
+
+.mat-calendar-body-selected {
+    background-color: transparent;
+    color: rgba(0, 0, 0, .87);
+}
+
+.mat-calendar-header button:focus {
+    background-color: transparent;
+    color: $iconDefaultColor;
+}
+
+.mat-calendar-header .mat-icon-button {
+    border-radius: 2px;
+}
+
+.im-lookup-fw-custom-date-input-field .mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0px;
+    visibility: hidden;
+}
+
+.im-lookup-fw-custom-date-input-field .mat-form-field-infix {
+    border-top: 0px solid transparent;
+}
+
+.im-lookup-fw-custom-date-input-field input.mat-input-element {
+    padding: 0px 5px;
+}
+
+.calendarLabel {
+    position: absolute;
+    bottom: -6px;
+}
+
+.mat-calendar-controls .mat-calendar-arrow {
+    width: 20px;
+    position: relative;
+    height: 14px;
+    border-left: unset;
+    border-right: unset;
+    border-top: unset;
+    margin: unset;
+    bottom: 17px;
+}
+
+
+.mat-calendar-arrow::before {
+    content: ' \25B2 ';
+    height: 4px;
+    font-size: 9px;
+    top: 0;
+    position: absolute;
+}
+
+.mat-calendar-arrow::after {
+    content: ' \25BC';
+    font-size: 9px;
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+}
+
+.mat-calendar-controls .mat-calendar-arrow {
+    color: lighten($colorBlack, 29%);
+}
+
+.mat-calendar-table-header-divider::after {
+    height: 0px;
+}
+
+.mat-calendar-arrow.mat-calendar-invert {
+    transform: none !important;
+}
+
+.mat-calendar-body-today {
+    color: $calenderActiveDateColor;
+}
+
+.mat-datepicker-content {
+    margin-top: 10px;
+    pointer-events: auto;
+    position: relative !important;
+    z-index: 1000;
+    border: 1px solid $ComboBoxDropdownBorder;
+    box-shadow: 0px 3px 6px $calenderDropdownBoxShadowColor;
+    box-sizing: border-box;
+    background: $backColorWhite;
+}
+
+.cdk-overlay-pane {
+    transform: translateX(0px) !important;
+}
+
+.cdk-overlay-connected-position-bounding-box {
+    pointer-events: auto !important;
+}

@@ -1,0 +1,91 @@
+<div class="im-lookup-component-container">
+  <ng-container #AutoCompleteContainer></ng-container>
+  <ng-template #AccountLookupTemplate>
+    <form class="example-form" style="width:100%">
+      <mat-form-field #taAutocompleteField class="im-lookup-framework-in-ag-grid im-lookup-framework-mat-form-wrapper">
+        <input type="text" #lookupAutoCompleteInput matInput [formControl]="formControl" [matAutocomplete]="auto"
+        autocomplete="off" [title]="previousValue | formatValue:params " (blur)="onBlur($event)" (keydown)="keyDown($event)">
+        <mat-autocomplete #auto="matAutocomplete" class="im-lookup-framework-matautocomplete" [displayWith]="displayValue">
+          <div class="im-lookup-fw-lookup-option-list">
+            <mat-option *ngFor="let option of options;trackBy: trackByFn" [value]="option" class="im-lookup-fw-custom-option"
+              (onSelectionChange)="onAutoCompleteSelectOption($event, option)">
+              <div *ngIf="params?.optionsFormat =='keyValue'"
+                [attr.title]="option[params?.model?.key]+' - '+option[params?.model?.value]">
+                {{option[params?.model?.key] +' - '+option[params?.model?.value]}}
+              </div>
+              <div *ngIf="params?.optionsFormat =='value'" [attr.title]="option[params?.model?.value]">
+                {{option[params?.model?.value]}}
+              </div>
+              <div *ngIf="params?.optionsFormat =='key'" [attr.title]="option[params?.model?.key]">
+                {{option[params?.model?.key]}}
+              </div>
+            </mat-option>
+          </div>
+          <div class="im-lookup-fw-auto-complete-footer"
+            *ngIf="params?.events?.onClear || params?.events?.onViewMore">
+            <div *ngIf="params?.events?.onClear" class="im-lookup-fw-auto-complete-footer-left" (click)="onClear();">
+              {{'IN_CC_CLEAR' | translate}}
+            </div>
+            <div *ngIf="params?.events?.onViewMore" class="im-lookup-fw-auto-complete-footer-right" (click)="onViewMore();">
+              {{'IN_CC_VIEW_MORE' | translate}}
+            </div>
+          </div>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </ng-template>
+
+  <ng-container #SelectContainer></ng-container>
+  <ng-template #SelectTemplate>
+    <div class="example-form im-lookup-fw-mat-select-container">
+      <mat-form-field class="im-lookup-framework-mat-form-wrapper example-full-width">
+        <mat-select [(value)]="selectedValue" panelClass="im-lookup-fw-mat-select"
+          (selectionChange)="selectionChange($event);">
+          <div class="im-lookup-fw-lookup-option-list">
+            <mat-option *ngFor="let option of options;trackBy: trackByFn" [value]="option[params?.model?.key]">
+              <div *ngIf="params?.optionsFormat =='keyValue'"
+                [attr.title]="option[params?.model?.key]+' - '+option[params?.model?.value]">
+                {{option[params?.model?.key] +' - '+option[params?.model?.value]}}
+              </div>
+              <div *ngIf="params?.optionsFormat =='value'">
+                {{option[params?.model?.value]}}
+              </div>
+              <div *ngIf="params?.optionsFormat =='key'">
+                {{option[params?.model?.key]}}
+              </div>
+            </mat-option>
+          </div>
+          <div class="im-lookup-fw-auto-complete-footer"
+            *ngIf="params?.events?.onClear || params?.events?.onViewMore">
+            <div *ngIf="params?.events?.onClear" class="im-lookup-fw-auto-complete-footer-left" (click)="onClear();">
+              {{'DM_IM_TA_SM_LD_LOOKUP_ACTION_CLEAR' | translate}}
+            </div>
+            <div *ngIf="params?.events?.onViewMore" class="im-lookup-fw-auto-complete-footer-right" (click)="onViewMore();">
+              {{'DM_IM_TA_SM_LD_LOOKUP_ACTION_VIEW_MORE' | translate}}
+            </div>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </ng-template>
+
+  <ng-container #DateContainer></ng-container>
+  <ng-template #DateTemplate>
+    <div class="example-form im-lookup-fw-mat-select-container im-lookup-fw-custom-date-input-field">
+      <mat-form-field class="im-lookup-framework-mat-form-wrapper example-full-width im-lookup-fw-custom-date-padding">
+        <input matInput [matDatepicker]="picker3" [value]="date" (dateChange)="dateSelectionChange($event)"
+          (click)="picker3.open()" (keydown)="false">
+        <mat-datepicker-toggle matSuffix [for]="picker3" disabled="false"></mat-datepicker-toggle>
+        <mat-datepicker #picker3 disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </ng-template>
+
+  <ng-container #DisabledLabelContainer></ng-container>
+  <ng-template #DisabledLabelTemplate let-value="value">
+    <span>
+      {{ value || ''}}
+    </span>
+  </ng-template>
+
+</div>

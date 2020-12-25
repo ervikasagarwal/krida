@@ -3,6 +3,7 @@ import { ConstantsService } from './../core/services/constants.services';
 import { UrlConstants } from './../core/services/url-constants.services';
 import { DateMethodsService } from './../core/services/date.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ declare var timeZoneOffset: any;
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     SharedTranslateModule,
     KridaTvHeaderModule,
     AppRoutingModule

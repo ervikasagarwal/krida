@@ -1,0 +1,117 @@
+<div class="dm-email-popup">
+    <div class="dm-email-popup-container">
+        <div class="ema-pop-header-wrapper">
+            <div class="ema-pop-iconText">
+                <span class="ema-pop-icon" #headerIcon dmIconInjector
+                    [config]="{cssClass: '', icon: '#icon_Email', isSVG: true}"></span>
+                <span class="ema-pop-header-text">
+                    {{ (this.config?.localeText?.title || defaultLocalText.Title ) | translate }}
+                </span>
+            </div>
+            <div class="ema-pop-from">
+                <ng-container #fromEmailContainer></ng-container>
+                <ng-template #fromEmailTemplate let-email="email">
+                    <span
+                        class="ema-pop-fromText">{{ (this.config?.localeText?.from || defaultLocalText.From ) | translate}}{{email}}</span>
+                </ng-template>
+            </div>
+            <div class="ema-pop-actions">
+                <div class="ema-pop-language">
+                    <select id="languages">
+                        <option value="English">English</option>
+                    </select>
+                </div>
+                <span class="ema-pop-close-icon" dmIconInjector (click)="onClose($event)"
+                    [config]="{cssClass: '',icon: '#icon_Close',isSVG: true}">
+                </span>
+            </div>
+        </div>
+        <div class="ema-pop-receiver-wrapper">
+            <div class="to-container receiver-container">
+                <div class="to-label">{{ (this.config?.localeText?.to || defaultLocalText.To ) | translate}}</div>
+                <div class="to-list-input-container" (click)="toListContainerClick($event)">
+                    <ng-container #toEmailChipsContainer></ng-container>
+                    <ng-template #toEmailChipsTemplate let-manifestPath="manifestPath" let-config="config">
+                        <dm-outlet [path]="manifestPath" [childConfig]="config" (onInitialize)="onInitialize($event)"
+                            (onDeinitialize)="onDeinitialize($event)" (onActivate)="onActivate($event)">
+                        </dm-outlet>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="cc-container receiver-container">
+                <div class="cc-label">{{ (this.config?.localeText?.cc || defaultLocalText.CC ) | translate}}</div>
+                <div class="cc-list-input-container" (click)="ccListContainerClick($event)">
+                    <ng-container #ccEmailChipsContainer></ng-container>
+                    <ng-template #ccEmailChipsTemplate let-manifestPath="manifestPath" let-config="config">
+                        <dm-outlet [path]="manifestPath" [childConfig]="config" (onInitialize)="onInitialize($event)"
+                            (onDeinitialize)="onDeinitialize($event)" (onActivate)="onActivate($event)">
+                        </dm-outlet>
+                    </ng-template>
+                </div>
+            </div>
+            <div class="subject-and-attachment-container">
+                <div class="subject-container">
+                    <div class="subject-label">
+                        {{ (this.config?.localeText?.subject || defaultLocalText.Subject ) | translate}}</div>
+                    <div class="email-subject-value" title={{subject}}>
+                        <input #subjectInput type="text" (change)="onSubjectChange($event);" value="{{subject}}"
+                            disabled>
+                    </div>
+                </div>
+                <ng-container #AttachmentBtnContainer></ng-container>
+                <ng-template #AttachmentBtnTemplate>
+                    <div class="attachment-btn-container" (click)="onAttachmentBtnClick($event)"
+                        title="{{  (this.config?.localeText?.attach || defaultLocalText.Attach)| translate}}">
+                        <div class="icon-label-wrapper">
+                            <div class="attachment-icon">
+                                <span class="ema-pop-receiver-attchmentIcon" dmIconInjector
+                                    [config]="{ cssClass: '', icon: '#icon_Attachment',isSVG: true}">
+                                </span>
+                            </div>
+                            <div class="attachment-label">
+                                {{  (this.config?.localeText?.attach || defaultLocalText.Attach )| translate}}
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+            <div class="attachments-list-container">
+                <ng-container #AttachmentListContainer></ng-container>
+                <ng-template #AttachmentListTemplate let-manifestPath="manifestPath" let-config="config">
+                    <dm-outlet [path]="manifestPath" [childConfig]="config" (onInitialize)="onInitialize($event)"
+                        (onDeinitialize)="onDeinitialize($event)" (onActivate)="onActivate($event)">
+                    </dm-outlet>
+                </ng-template>
+            </div>
+        </div>
+        <div class="ema-pop-content-wrapper">
+            <ng-container #emailBodyContainer></ng-container>
+            <ng-template #emailBodyTemplate let-manifestPath="manifestPath" let-config="childConfig">
+                <div class="ema-pop-content-text">
+                    <dm-outlet [path]="manifestPath" [childConfig]="config" (onInitialize)="onInitialize($event)"
+                        (onDeinitialize)="onDeinitialize($event)" (onActivate)="onActivate($event)">
+                    </dm-outlet>
+                </div>
+            </ng-template>
+
+        </div>
+        <div class="ema-pop-footer-wrapper">
+            <dm-button class="ta-btn marginRight15"
+                [config]="{'title': (this.config?.localeText?.close || defaultLocalText.Close ), 'whiteSecondaryBtn':true}"
+                (callback)="onFooterClose($event)">
+            </dm-button>
+            <dm-button class="ta-btn marginRight15"
+                [config]="{'title': (this.config?.localeText?.send || defaultLocalText.Send ), 'whiteSecondaryBtn':false}"
+                (callback)="onSendBtnClick($event)">
+            </dm-button>
+        </div>
+    </div>
+    <ng-container #fileBrowsePopupContainer></ng-container>
+    <ng-template #fileBrowsePopupTemplate let-manifestPath="manifestPath" let-config="config">
+        <div class="email-browse-popup-container">
+            <dm-outlet [path]="manifestPath" [childConfig]="config" (onInitialize)="onInitialize($event)"
+                (onDeinitialize)="onDeinitialize($event)" (onActivate)="onActivate($event)">
+            </dm-outlet>
+        </div>
+    </ng-template>
+</div>

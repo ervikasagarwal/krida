@@ -1,0 +1,61 @@
+<div class="im-user-lookup-overlay-container" (click)="onOverlayClick($event)">
+  <div class="im-user-lookup-popup-container">
+    <div class="im-user-lookup-header">
+      <div class="left title">{{ popupTitle }}</div>
+      <div class="right im-user-lookup-close-btn" *ngIf="config?.events?.onClose" (click)="onCloseIconClicked($event);">
+        <span class="ema-pop-icon" #headerIcon dmIconInjector
+          [config]="{cssClass: '', icon: '#icon_Close', isSVG: true}"></span>
+      </div>
+    </div>
+    <ng-template #userSelectionTemplate>
+      <div class="im-user-lookup-body">
+        <form class="user-lookup-form">
+          <mat-form-field class="example-full-width im-user-lookup-field">
+            <mat-label>{{ inputLabel }}</mat-label>
+            <input type="text" matInput [formControl]="formControl" [title]="placeholder" placeholder="{{placeholder}}" autocomplete="off">
+            <span class="searchIcon" #headerIcon dmIconInjector
+              [config]="{cssClass: '', icon: '#icon_Search', isSVG: true}"></span>
+          </mat-form-field>
+        </form>
+        <ul class="im-user-lookup-user-list">
+          <li class="im-user-lookup-user-detail" *ngFor="let user of users;trackBy: trackByFn" [title]="user[value]"
+            [class.lookupUserSelected]="user[key] === selectedUser[key]" (click)="onUserSelect(user)">
+            <div class="left-icon"> {{ user | iconText: config }}</div>
+            <div class="detail">{{ user[value] }} </div>
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+    <ng-container #userSelectionContainer></ng-container>
+    <ng-template #ConfirmationBodyTemplate>
+      <div class="im-user-lookup-confirm-body">
+        {{ confirmMessage }}
+      </div>
+    </ng-template>
+    <ng-container #ConfirmationBodyContainer></ng-container>
+
+    <div class="im-user-lookup-footer">
+      <ng-template #CancelBtnTemplate let-manifestPath="manifestPath" let-config="config">
+        <dm-outlet class="im-user-lookup-btn" [path]="manifestPath" [childConfig]="config"
+          (onInitialize)="onInitialize($event)" (onDeinitialize)="onDeinitialize($event)"
+          (onActivate)="onActivate($event)">
+        </dm-outlet>
+      </ng-template>
+      <ng-container #CancelBtnContainer></ng-container>
+      <ng-template #SubmitBtnTemplate let-manifestPath="manifestPath" let-config="config">
+        <dm-outlet class="im-user-lookup-btn" [path]="manifestPath" [childConfig]="config"
+          (onInitialize)="onInitialize($event)" (onDeinitialize)="onDeinitialize($event)"
+          (onActivate)="onActivate($event)">
+        </dm-outlet>
+      </ng-template>
+      <ng-container #SubmitBtnContainer></ng-container>
+      <ng-template #ConfirmBtnTemplate let-manifestPath="manifestPath" let-config="config">
+        <dm-outlet class="im-user-lookup-btn" [path]="manifestPath" [childConfig]="config"
+          (onInitialize)="onInitialize($event)" (onDeinitialize)="onDeinitialize($event)"
+          (onActivate)="onActivate($event)">
+        </dm-outlet>
+      </ng-template>
+      <ng-container #ConfirmBtnContainer></ng-container>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,8 @@
 <div class="header-container">
     <div class="temp-header">
-        lookup-framework-component
+        <div class="temp-header-lang-select">
+        <lookup-framework-component [params]="params" [scope]="scope" ></lookup-framework-component>
+        </div>
     </div>
     <div class="header-content">
         <div class="logo-container">
@@ -9,7 +11,7 @@
         </div>
         <div class="nev-list-container">
             <ul>
-                <li><a href="#">{{ 'Home' | translate }}</a></li>
+                <li><a href="#">{{ 'header.home' | translate }}</a></li>
                 <li><a href="#">Games</a></li>
                 <li><a href="#">Blogs</a></li>
                 <li><a href="#">Contact</a></li>
@@ -54,4 +56,3 @@
     </div>
     <span class="loading-indicator"></span>
 </div>
-<router-outlet></router-outlet>

@@ -1,10 +1,11 @@
 import { Router } from '@angular/router';
-import { Component, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 declare var icons: any;
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.scss']
+	styleUrls: ['./app.component.scss'],
+	changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements AfterViewInit {
 	title = 'testProject';

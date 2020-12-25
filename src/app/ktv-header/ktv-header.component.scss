@@ -11,12 +11,18 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    font-family: 'Odibee Sans', cursive;
     position: fixed;
 
     .temp-header {
-        height: 30px;
+        height: 38px;
+        padding: 3px;
         background-color: #c8c8c8;
+        display: flex;
+
+        .temp-header-lang-select {
+            width: 200px;
+            display: flex;
+        }
     }
 
     // font-family: 'Piedra', cursive;
@@ -33,6 +39,8 @@
         background-color: $primaryColor;
         height: 50px;
         justify-content: space-between; //make all remaining space in the middle so that last div stick to the right side
+        font-family: 'Odibee Sans', cursive;
+        // font-family: Arial, Helvetica, sans-serif;
 
         .logo-container {
             display: flex;

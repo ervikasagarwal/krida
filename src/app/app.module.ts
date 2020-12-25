@@ -1,3 +1,4 @@
+import { LangTranslateModule } from './../core/services/translate.module';
 import { CommonMethodService } from './../core/services/common-method.service';
 import { ConstantsService } from './../core/services/constants.services';
 import { UrlConstants } from './../core/services/url-constants.services';
@@ -9,18 +10,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KridaTvHeaderModule } from './ktv-header/ktv-header.module';
 import { WindowService } from 'src/core/services/window-ref.service';
-import { SharedTranslateModule } from 'src/core/services/translate.module';
-
+import { TranslateService } from '@ngx-translate/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 declare var userCountryCultureInfo: any;
 declare var timeZoneOffset: any;
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
+    LangTranslateModule,
     BrowserAnimationsModule,
-    SharedTranslateModule,
     KridaTvHeaderModule,
     AppRoutingModule
   ],
@@ -29,7 +31,8 @@ declare var timeZoneOffset: any;
 })
 export class AppModule {
   constructor(
-    private dateMethodsService: DateMethodsService
+    private dateMethodsService: DateMethodsService,
+    private translate: TranslateService
   ) {
     dateMethodsService.setLocaleOffset(timeZoneOffset);
     dateMethodsService.setUserCountryCultureInfo(userCountryCultureInfo, userCountryCultureInfo);

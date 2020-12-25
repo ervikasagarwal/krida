@@ -3,17 +3,23 @@ import { CommonModule } from '@angular/common';
 import { AgGridLookupFrameworkComponent } from './lookup.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
-import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatDateFormats, MatAutocompleteModule, MatInputModule, MatFormFieldModule, MatSelectModule, MatOptionModule, MatDatepickerModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import * as momentImported from 'moment';
 import { FormatValuePipe } from './format-value.pipe';
 import { DateMethodsService } from 'src/core/services/date.service';
+import { MatDateFormats, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS, MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 const moment = momentImported;
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'lookup',
         component: AgGridLookupFrameworkComponent
     }
 ]
@@ -35,6 +41,7 @@ export const MAT_MOMENT_DATE_FORMATS: MatDateFormats = {
 };
 
 @NgModule({
+    declarations: [AgGridLookupFrameworkComponent, FormatValuePipe],
     imports: [
         CommonModule,
         MatAutocompleteModule,
@@ -46,7 +53,7 @@ export const MAT_MOMENT_DATE_FORMATS: MatDateFormats = {
         MatFormFieldModule,
         TranslateModule,
         MatDatepickerModule,
-        RouterModule.forChild(routes)
+        // RouterModule.forChild(routes)
     ],
 
     exports: [
@@ -57,14 +64,14 @@ export const MAT_MOMENT_DATE_FORMATS: MatDateFormats = {
         MatOptionModule,
         MatInputModule,
         MatFormFieldModule,
-        MatDatepickerModule
+        MatDatepickerModule,
+        AgGridLookupFrameworkComponent
     ],
     providers: [
         { provide: MAT_DATE_LOCALE, useFactory: localeIdFactory, deps: [DateMethodsService] },
         { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
         { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS }
     ],
-    declarations: [AgGridLookupFrameworkComponent, FormatValuePipe],
     entryComponents: [AgGridLookupFrameworkComponent]
 })
 export class AgGridLookupFrameworkModule { }

@@ -1,0 +1,52 @@
+<div class="im-common-grid-lookup-framework-container">
+    <ng-container #textboxContainer></ng-container>
+    <ng-template #textboxTemplate>
+        <input #inputElementRef class="im-common-grid-custom-textbox" type="text" [ngStyle]="params?.inputStyle"
+            [ngClass]="{'im-common-grid-invalid-textbox': params?.value?.invalid || params?.invalid }" [value]="textboxValue"
+            [disabled]="params?.disabled" (keyup)="onKeyUp($event);" (keydown)="onKeyDown($event)" (blur)="onBlur();"
+            (click)="onTextBoxClick();" />
+        <span *ngIf="params?.type == 'dropdown'" class="im-common-grid-select-arrow"></span>
+    </ng-template>
+    <ng-container #suggestionListContainer></ng-container>
+    <ng-template #suggestionListTemplate>
+        <div class="im-common-lookup-auto-complete-wrapper">
+            <div class="im-common-grid-custom-textbox-auto-complete-container">
+                <ul>
+                    <li *ngFor="let item of suggestionList;trackBy: trackByFn" (click)="onSelectSuggestionItem(item);">
+                        <div *ngIf="params?.optionsFormat =='keyValue'"
+                            [attr.title]="item[params?.model?.key]+' - '+item[params?.model?.value]">
+                            {{item[params?.model?.key] +' - '+item[params?.model?.value]}}
+                        </div>
+                        <div *ngIf="params?.optionsFormat =='key'" [attr.title]="item[params?.model?.key]">
+                            {{item[params?.model?.key]}}
+                        </div>
+                        <div *ngIf="params?.optionsFormat == 'value' || !params?.optionsFormat"
+                            [attr.title]="item[params?.model?.value]">
+                            {{item[params?.model?.value]}}
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="im-common-grid-custom-textbox-auto-complete-footer"
+                    *ngIf="params?.events?.onClear || params?.events?.onViewMore">
+                    <div *ngIf="params?.events?.onClear" class="im-common-grid-custom-textbox-auto-complete-left" (click)="onClear();">
+                        <locale [localeKey]="'CLEAR'"></locale>
+                    </div>
+                    <div *ngIf="params?.events?.onViewMore" class="im-common-grid-custom-textbox-auto-complete-right"
+                        (click)="onViewMore();">
+                        <locale [localeKey]="'VIEW_MORE'"></locale>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </ng-template>
+
+
+    <ng-container #DisabledLabelContainer></ng-container>
+    <ng-template #DisabledLabelTemplate let-value="value">
+        <span>
+            {{ value || ''}}
+        </span>
+    </ng-template>
+</div>

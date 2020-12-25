@@ -1,0 +1,206 @@
+.im-common-lookup-auto-complete-wrapper {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 2px 11px 0 11px;
+}
+
+.im-common-grid-custom-textbox-auto-complete-container {
+    background-color: #FFF;
+    border-radius: 0 0 5px 5px;
+    border: solid 1px #dedede;
+    box-shadow: 0px 0px 4px 0px #dedede;
+    text-align: left;
+    font-weight: normal;
+
+    ul {
+        overflow: hidden;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    ul>li {
+        border-bottom: solid 1px #dedede;
+        padding: 4px;
+        cursor: pointer;
+        background-color: #FFF;
+        font-size: 13px;
+    }
+
+    ul>li:last-child {
+        border-bottom: none;
+    }
+
+    ul>li:hover {
+        background-color: #dedede5c;
+    }
+
+    .im-common-grid-custom-textbox-auto-complete-footer {
+        padding: 6px;
+        border-top: solid 1px #dedede;
+
+        .im-common-grid-custom-textbox-auto-complete-left {
+            float: left;
+            display: contents;
+            color: #0177d6;
+            cursor: pointer;
+        }
+
+        .im-common-grid-custom-textbox-auto-complete-left:hover {
+            text-decoration: underline;
+        }
+
+        .im-common-grid-custom-textbox-auto-complete-right {
+            float: right;
+            color: #0177d6;
+            cursor: pointer;
+        }
+
+        .im-common-grid-custom-textbox-auto-complete-right:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.im-common-grid-lookup-framework-container {
+    text-align: center;
+    
+    input[type=text][readonly] {
+        border-bottom: solid 1px #dedede !important;
+    }
+
+    overflow: hidden;    
+}
+
+.im-common-grid-custom-textbox {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: #FFF;
+    border: solid 1px #dedede;
+    padding: 0px 5px;
+    height: 40px;
+    border-radius: 4px;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding-right: 21px;
+}
+
+input.im-common-grid-custom-textbox:focus {
+    box-shadow: none;
+    border-bottom: solid 1px #dedede;
+}
+
+input.im-common-grid-custom-textbox:disabled {
+    background-color: #E7E7E7;
+}
+
+
+
+.im-common-grid-invalid-textbox {
+    border: solid 2px red !important;
+}
+
+
+::ng-deep .grid-lookup-ag-grid-cell {
+    overflow: visible !important;
+
+    im-common-grid-lookup-framework-component {
+        width: 100%;
+    }
+}
+
+.im-common-grid-select-arrow {
+    width: 10px;
+    position: relative;
+    border-left: unset;
+    border-right: unset;
+    right: 17px;
+    top: -9px;
+
+    &:before {
+        content: '\25B2';
+        height: 4px;
+        font-size: 9px;
+        top: 0px;
+        position: absolute;
+    }
+
+    &:after {
+        content: '\25BC';
+        font-size: 9px;
+        height: 5px;
+        position: absolute;
+        top: 10px;
+    }
+}
+
+::ng-deep .im-common-lookup-framework-ag-grid-base-class {
+    floating-cell {
+        width: 100%;
+    }
+
+    .actions-button-cell {
+        overflow: visible !important;
+    }
+
+    .ag-row {
+        z-index: 0 !important;
+    }
+
+    .ag-row.ag-row-focus {
+        z-index: 1 !important;
+    }
+
+    .ag-root,
+    .ag-body-viewport,
+    .ag-body-viewport-wrapper {
+        overflow: visible !important;
+    }
+
+    .ag-floating-top {
+        overflow: unset !important;
+        overflow-y: unset !important;
+        background-color: #f2fbff !important;
+    }
+
+    .ag-floating-top-viewport {
+        overflow: unset;
+        z-index: 1;
+    }
+
+    .ag-floating-top-container>div:first-child div {
+        overflow: unset;
+    }
+
+    .ag-has-focus .ag-cell-focus:not(.ag-cell-range-selected) {
+        border: solid 1px transparent !important;
+    }
+
+    .ag-center-cols-viewport {
+        overflow: auto !important;
+    }
+}
+
+.add-new-btn {
+    border-radius: 6px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 1rem;
+    box-shadow: none;
+    // font-weight: 500;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer;
+}
+
+.add-new-btn-primary {
+    border: 1px solid var(--btnBorder);
+    color: var(--btnText);
+    background-color: var(--btnBG);
+}
